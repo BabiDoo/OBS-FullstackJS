@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Escalação de times</title>
+    <link rel="stylesheet" href="style.css">
+  <body>
+    <div class="cabeçalho"><h1>Escalação de times</h1></div>
+    
+    <hr />
+
+    <div class="background">
+      <div class="menu">
+      <span>
+        <h2>Escolha um opção</h2>
+      </span>
+      <div class="ButtonContainer">
+    
+        <label for="posicao">POSIÇÃO:</label>
+        <input type="text" name="posicao" id="posicao">
+        
+        <label for="nome">NOME:</label>
+        <input type="text" name="nome" id="nome">
+      
+        <label for="numero">N DA CAMISA:</label>
+        <input type="number" name="numero" id="numero">
+      
+
+      <button id="add" onclick="escalar()">Escalar um jogador</button>
+      <button id="rmv" onclick="remover()">Remover um jogador</button>
+     </div>
+    </div>
+
+    <div class="lista">
+      <span><h3>Lista de jogadores escalados:</h3></span>
+      <ul id="lista"></ul>
+    </div>
+    </div>
+
+   <script src="index.js"></script>
+    
+  </body>
+
+</html>

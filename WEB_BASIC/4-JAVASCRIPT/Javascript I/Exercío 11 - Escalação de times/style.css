@@ -1,0 +1,112 @@
+h1 {
+  font-size: 45px;
+}
+
+h2 {
+  font-size: 40px;
+  color: midnightblue;
+}
+
+h3 {
+  font-size: 25px;
+  color: midnightblue;
+}
+
+div.background {
+  display: flex;
+  flex: 1;
+  margin: 10px;
+  padding: 20px;
+}
+
+div.cabeçalho {
+  text-align: center;
+  color: white;
+  background: royalblue;
+  width: fit-content;
+  margin: 5px auto;
+  padding: 5px 100px;
+  border: 2px solid midnightblue;
+
+
+}
+
+div.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: fit-content;
+  margin: 20px auto;
+  background: royalblue;
+  box-shadow: -5px -5px 15px 1px white, 5px 5px 15px 1px white;
+  border-radius: 3px;
+}
+
+div.lista {
+  margin: 20px auto; /* Centraliza a div.lista horizontalmente */
+  justify-content: start;
+  width: fit-content;
+  text-align: center; 
+  padding: 0 20px 20px 20px; 
+  background: rgba(175, 238, 238, 0.4);
+  border-radius: 4px;
+
+}
+
+body {
+  background-image: url("brackgroud-image.jpeg")
+}
+
+div.ButtonContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px;
+  align-items: flex=start;
+
+}
+
+ButtonContainer label {
+  font-size: 18px;
+  margin-bottom: 5px;
+
+}
+
+.ButtonContainer input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 2px solid #afeeee;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.ButtonContainer button {
+  background: aquamarine;
+  color: midnightblue; 
+  border: solid teal;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 0 auto;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 22px;
+  
+}
+
+
+/* Estilização para a lista de jogadores */
+.lista ul {
+  list-style: none;
+  padding: 0;
+}
+
+.lista ul li {
+  padding-left: 20px; /* Espaço para o ponto */
+  margin-bottom: 15px; /* Espaço entre cada jogador */
+}
+
+.lista ul li h4 {
+  margin: 5px 0; /* Espaçamento entre as informações de cada jogador */
+}
