@@ -8,27 +8,49 @@ cd nome_do_repositorio/ = muda para o diretório definido, caso ele exista
 
 git init = inicializa o repositório no git ( precisa estar dentro do repositório )
 
-git add nome_do_repositorio/= adiciona os arquivos na stanging area
+git add nome_do_repositorio/= adiciona os arquivos na stanging área
+
+git add . = adiciona todos os arquivos da pasta na stagind área 
 
 git remote add origin url_repositorio_git = conecta o repo local com o repo remoto
 
+git push -u origin main = envia o código para o repo remoto na branch main 
+
+git pull origin main = baixa e mescla as alterações do repo remoto no local
+
 git clone url_do_github nome_para_o_dir_local (opcional) = clona um repositório do git na maquina
 
+git commit -m "mensagem do commit" = salva as alterações atuais na branch atual com uma mensagem 
+
 git status = estado da arvore de trabalho e staging area / estados dos arquivos da branch 
+
+git log = exibe os históricos de commit 
+
+git diff = compara o estado atual e o ultimo commit 
+
 
 -----------BRANCHES:
 >>>>tipos:
 branch principal(main ou master)
 branch para nova funcionalidade
 branch para correções
+
 >>>>comandos básicos
 git branch nome_da_branch = cria uma nova branch 
 
 git checkout nome_da_brach = muda para a branch nome_da_branch
 
+git switch nome_da_branch = alternativa moderna para git checkout
+
 git branch = lista todas as branches do repositório
 
 git merge nome_da_branch = mescla nome_da_branch com a branch atual
+
+git branch -d nome_da_branch = exclui a branch nome_da_branch
+
+git push origin nome_da_branch = envia a branch nome_da_branch para o repo remoto
+
+
 
 
 --------VERSÕES SEMÂNTICAS:
@@ -37,6 +59,11 @@ MAJOR(versao principal) v01.00.00
 MINOR(versao secundaria) v00.01.00
 PATCH(correção de bugs) v00.00.01
 
+>>>>Regras práticas:
+
+Atualize MAJOR para mudanças que quebram compatibilidade.
+Atualize MINOR para novas funcionalidades compatíveis com versões anteriores.
+Atualize PATCH para correções que não alteram funcionalidades.
 
 
 
