@@ -9,9 +9,21 @@ function add_skills() {
 
     const skillInput = document.createElement('input');
     skillInput.type = 'text';
-    skillInput.name = 'skill'; 
+    skillInput.name = 'skillName'; 
+
+    const skillLevelLabel = document.createElement('label');
+    skillLevelLabel.textContent = 'Your level: ';
+
+    const skillLevelInput = document.createElement('input');
+    skillLevelInput.type = 'number';
+    skillLevelInput.name = 'skillLevel';
+    skillLevelInput.min = 1;
+    skillLevelInput.max = 10;
 
     techList.appendChild(skillNameLabel);
     techList.appendChild(skillInput);
+    techList.appendChild(skillLevelLabel);
+    techList.appendChild(skillLevelInput);
 
 }
+
