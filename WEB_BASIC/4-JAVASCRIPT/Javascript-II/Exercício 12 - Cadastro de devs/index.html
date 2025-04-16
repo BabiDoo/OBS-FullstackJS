@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Devs</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="./index.js" defer ></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro de Devs</h1>
+    <form id="devForm" class="dev-form">
+        <label>
+            Nome Completo:
+            <input type="text" id="devName" required>
+            </label>
+            <ul id="list"> </ul>    
+            <section>
+                <h3>Adicione uma nova habilidade</h3>
+                <label for="skill">
+                Tenho conhecimento em:
+                <input type="text" name="skill" id="skill" required>
+                        </label>
+                        <br>
+                        <label for="XP">
+                            Tempo de Experiência:
+                            <select name="XP" id="XP">
+                                <option value="0-2 anos">0-2 anos</option>
+                                <option value="3-4 anos">3-4 anos</option>
+                                <option value="+5 anos">+5 anos</option>
+                            </select>
+                        </label>
+                        <br>
+                        <div class="addBtn" id="addBtn">
+                         <button type="button">Adicionar</button>
+                        </div>
+                        </section>
+                        <button type="submit" id="submit">Cadastrar</button>
+            </div>
+    </form>
+     <div class="devs-container">
+        <h1>Devs Cadastrados</h1>
+        <ul id="devList" class="dev-list"></ul>
+     </div>
+</body>
+</html>

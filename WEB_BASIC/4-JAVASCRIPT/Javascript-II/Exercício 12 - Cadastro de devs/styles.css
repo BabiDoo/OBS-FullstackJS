@@ -1,0 +1,182 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding: 2rem;
+    color: #333;
+}
+
+.container, .devs-container {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+.devs-container {
+    margin-left: 2rem;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #007BFF;
+    text-align: center;
+}
+
+.dev-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+label {
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"], select {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+}
+
+button {
+    cursor: pointer;
+    padding: 0.75rem;
+    border: none;
+    background-color: #007BFF;
+    color: #fff;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button[type="submit"] {
+    margin-top: 1rem;
+}
+
+#addBtn {
+    display: flex;
+    justify-content: center;
+}
+
+#list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#list li {
+    background-color: #f0f0f0;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+.dev-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 2rem;
+}
+
+.dev-list-item {
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.dev-list-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dev-name {
+    font-weight: bold;
+    color: #007BFF;
+    font-size: 1.1rem;
+}
+
+.dev-tech {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.dev-tech span {
+    font-weight: bold;
+    color: #333;
+}
+
+.dev-list-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Novo estilo para separar cada dev em um retângulo com mais organização */
+.dev-list-item {
+    background-color: #e0f7fa;  /* Cor suave de fundo para cada item */
+    border: 2px solid #007BFF;  /* Borda azul para destacar o dev */
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+}
+
+.dev-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #007BFF;
+}
+
+.dev-tech {
+    font-size: 1rem;
+    color: #555;
+}
+
+.remove-skill-btn {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 0.2rem 0.4rem; /* Menor padding */
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem; /* Tamanho pequeno da fonte */
+    margin-left: 0.5rem;
+    height: 25px;  /* Altura fixa */
+    width: auto;  /* Largura automática */
+    white-space: nowrap;  /* Impede quebra de linha */
+}
+
+.remove-skill-btn:hover {
+    background-color: #b02a37;
+}
+
+/* Ajuste no item da lista para que o botão fique bem ao lado */
+#list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f0f0;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+
