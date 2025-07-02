@@ -34,6 +34,10 @@ document.getElementById("clear").addEventListener("click", clearInput); //seleci
 //Calcula o resultado
 document.getElementById("equal").addEventListener("click", calculate); //seleciona o elemento com id equal e add o ev listener de click para invocar a funcao calculate()
 
+document.getElementById("themeSwitcher").addEventListener("click", themeswitcher);
+
+document.getElementById("copyToClipboard").addEventListener("click", copy);
+
 ////////////////////////////PARA TECLADO
 input.addEventListener("keydown", (ev) => { //add um ev listener de keydown no input que faz um procedimento de acordo com a key
   ev.preventDefault();
@@ -70,4 +74,30 @@ function charkeyOn(btn) {
 function calculate() {
   const result = eval(input.value); // guarda o valor do input passado por eval para a const resultado
   resultInput.value = result; //seta o valor de resultInput com o valor que foi avaliado no eval()
+}
+
+function themeswitcher () { 
+  if (main.dataset.theme === "dark") { //  se o tema estiver escuro, muda o root style e set theme = light
+    root.style.setProperty("--bg-color", "#f1f5f9")
+    root.style.setProperty("--border-color", "#aaa")
+    root.style.setProperty("--font-color", "#212529")
+    root.style.setProperty("--primary-color", "#26834a")
+    main.dataset.theme = "light"
+  } else { //  se o tema estiver claro, muda o root style e set theme = light
+    root.style.setProperty("--bg-color", "#212529")
+    root.style.setProperty("--border-color", "#666")
+    root.style.setProperty("--font-color", "#f1f5f9")
+    root.style.setProperty("--primary-color", "#4dff91")
+    main.dataset.theme = "dark"
+  }
+
+}
+
+function copy (ev) {
+    const button = ev.currentTarget;
+    if (button.innerText === 'Copy') {
+        button.innerText = 'Copied!'
+    }
+    button.classList.add("success");
+    navigator.clipboard.writeText(resultInput.value);
 }
