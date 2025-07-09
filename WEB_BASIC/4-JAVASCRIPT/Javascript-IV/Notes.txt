@@ -1,0 +1,548 @@
+ARROW FUNCTIONS
+
+-Uma forma diferente de escrever funções anônimas
+-Nao utiliza a palavra function, utiliza => após os parâmetros(por isso arrow functions)
+-Nao possui seus próprios argumentos: this, arguments, super e new.target
+-Também permite retornar diretamente uma expressão, caso seja uma função de uma unica linha
+
+Ex.:
+
+const sum = (a,b) => {
+
+	return a+b
+
+} 
+
+
+const  multiply = (a,b) => a * b     //forma elegante de escrever uma arrow function
+
+
+
+const towns = [Pronteira, Izlude, Payon, Alberta];
+
+const startWithP = towns.filter(town => towns[0] == 'P')
+
+
+DESESTRUTURAÇÃO DE OBJETOS E ARRAYS
+
+-Funcionalidade que permite criar variáveis a partir de propriedades de um objeto ou elementos de um array
+-No caso das propriedades do objeto, as variáveis serão criadas com mesmo nome da propriedade
+-No caso dos elementos do array, podemos atribuir qualquer nome para a variável
+-Também pode ser utilizada de outras formas, como nos parâmetros de uma função
+
+Ex.:
+
+const {name, email} = person
+const [x, y] = coordinates
+
+function hello({name}) {
+
+	console.log(`Hello, ${name}`)
+
+}
+
+
+
+----------------
+
+const person = {
+   
+  name: 'Luke',
+  job: 'Farmer',
+  parents: ['Anakin', 'Padme']
+	
+}
+
+
+
+
+
+const name = person.name //sem desestruturação
+
+const { job, parents } = person //o JS ja entende que quer quebrar o objeto e pegar a propriedade job e parents
+
+para um array: usamos []
+
+const [father, mother] = parents //acessa a propriedade father e mother do array parents
+
+os arrays não tem nomes, devemos usar a ordem dos elementos
+
+Poderia ser escrito:
+
+const [a, b] = parents //funcionaria da mesma forma que const [father, mother]
+
+
+
+//sem desustruturação
+function createUser(person) {
+
+   const id = Math.floor(Math.random() * 9999)
+
+   return {
+    
+    id,
+    name: person.name,
+    job: person.job,
+    parents: person.parents
+
+    }
+
+
+    
+    const Luke = createUser(person)
+}
+
+
+//com desestruturação
+function createUser({name, job, parents}) {
+
+   const id = Math.floor(Math.random() * 9999)
+   return {
+    
+    id,
+    name,
+    job,
+    parents
+
+    }
+
+
+    
+    const Luke = createUser(person)
+}
+
+
+--------------------------------------------------------------------
+
+OPERADOR SPREAD 
+
+                      ...
+
+Operador que permite espalhar os elementos de um objeto iterável, como um array ou uma string
+
+Pode ser usado para diferentes fins como:
+-Passar vários parâmetros de uma única vez
+-Clonar objetos iteráveis
+-Fazer manipulações sem afetar o objeto original
+-Transformar strings em arrays
+
+Ex.:
+
+let srt = Olá, Mundo"
+
+let array = [1,2,3,4]
+
+console.log(...str) -> imprime O l a , M u n d o
+console.log(...array) -> imprime 1 2 3 4
+
+----------
+
+
+const towns = ['Prontera', 'Izlude', 'Payon', 'Alberta', 'Geffen', 'Morroc']
+
+console.log(towns) -> sem spread
+console.log(...towns) -> com spread
+console.log(...towns[0])
+
+
+const townsCopy = towns
+
+townsCopy.pop( );
+townsCopy.push("Juno")
+
+console.log([towns, townsCopy]) --> os dois arrays são modificados pois townsCopy é uma referencia de towns
+
+------------------
+
+const townsClone = [...towns]
+townsClone.push("Aldebaram")
+
+console.log({ towns, townsCopy, townsClone })
+
+------------------
+
+const townsObj = { ...towns }
+const townsObjClone = { ...townsObj }
+
+townsObjClone.test = 'Test'
+
+console.log({ townsObj, townsObjClone })
+
+
+----------------------------------------------------------------------------------------
+REST PARAMS
+
+É uma técnica que permite que uma função receba qualquer numero de parametros
+Permite manipular esses parametros como um array na definição da função
+
+Ex.: function sum(...num) {
+  return num.reduce((accum, num) => accum + num, 0)
+}
+
+Rest Params sempre sao colocados como os ultimos parametros.
+
+
+----------------------------
+
+function sum(...numbers) {
+  return numbers.reduce((accum, num) => accum + num, 0)
+}
+
+console.log(sum(1,1))
+
+console.log(sum(2,2,2,2,2))
+
+console.log(sum(32,5,7,89,46,76))
+
+-------------------------------------------------------------------
+ENDADEAMENTO OPCIONAL
+
+Operador que permite ler propriedades internas de uma cadeia de objetos sem que a validação de cada referencia da cadeia seja realizada
+
+Permite acessar propriedades internas sem lançar erros quando uma propriedade é nullish( null ou undefiened)
+
+Funciona de forma similar ao encadeamento normal (operador . ), porém é escrito com "?"
+
+Ex:.
+
+
+const user = {
+  name: "John Doe",
+  email: "doejohn@email.com",
+  friends: [{
+    name: "Mary",
+    address: {
+      street: "Some Street",
+      number: 89
+    }
+  }],
+  age: 42,
+  phone: {
+    countryCode: "+55",
+    ddd: "22",
+    number: "998765432"
+  }
+}
+
+// console.log(user.friends[0].phone.ddd)
+console.log(user.friends[0].phone?.ddd)
+console.log(user?.brothers?.length)
+
+console.log(user.brothers?.[5].name)
+
+
+------------------------------------------------------------
+
+
+MODULOS:
+
+São agrupamentos de codigos com funcionalidades distintas que podem ser compartilhados, adicionados ou removidos dos nossos softwares.
+
+
+--> Manutenibilidade - Namespacing - Reusabilidade <---
+
+COMMMONJS
+file::render.js
+module.exports = render;
+file::index.js
+const render = require("./render.js")
+
+ESMODULES
+file::index.html
+<script type="module">
+file::functions.js
+export function doSomething(){...}
+file::index.js
+import { doSomething, otherFunction } from "./functions.js"
+
+-----------------------------------------
+
+TIPOS DE EXPORT DO ESMODULES
+
+INLINE
+file::file.js
+export functin moduleX(){...}
+file::index.js
+import { moduleX } from 'path/to/file' or import { moduleX as myModule } from 'path/to/file'
+
+DEFAULT INLINE
+file::file.js
+export default functin(){...}
+file::index.js
+import default from 'path/to/file'
+
+GROUP
+file::file.js
+export { moduleX, moduleY, moduleZ }
+export default exportDefault
+file::index.js
+import exportDefault, { moduleX, moduleY, moduleZ } from './files.js'
+
+-----------------------------------------------------------------------------------------------------
+
+NPM - NODE PACKAGE MANAGER
+
+É um gerenciador de pacotes do Node.js que permite compartilhar, baixar e gerenciar modulos.
+
+- terminal para esecutar o NPM
+- repositorio online para compartilhar recursos
+- site para pesquisar pacotes npmjs.com
+file::package.json
+arquivo que o node cria e edita para gerenciar o projeto, pacotes e dependencias
+
+< ./path/to/some/dir > npm init ou npm int -y (flag para criar projeto padrao sem preencher nada)
+
+< ./path/to/some/dir > npm install --save nomeDoPacote (flag --save serve para salvar o pacote no projeto, adicionando-o ao package.json)
+
+dir::nome_modules
+pasta que é criada pelo primeiro npm install e é onde ficam todos os pacotes instalados
+----------------------------------
+
+IMPORTANDO MODULOS NO PROJETO
+>> Se usa COMMMONJS!!
+file::index.js
+const myModule = require("myModule") //pacote q foi instalado via npm e esta em node_modules
+
+
+IMPORTANDO DEV DEPENDENCIES (modulos que são utilizados *apenas* no ambiente dev)
+< ./path/to/some/dir > npm install --save-dev (flag --save-dev serve para salvar o pacote no projeto, adicionando-o ao package.json como Dev Dependecies)
+
+INSTALANDO PACOTES GLOBAIS (na maquina)
+< ./path/to/some/dir > npm install --global nomeDoPacote
+
+REMOVENDO PACOTES
+< ./path/to/some/dir > npm uninstall nomeDoPacote
+
+
+ARQUIVOS JSON (Javascript Object Notation)
+
+Formato de arquivo utilizado para troca de dados
+Compacto, representado em texto, de padrao aberto e que trabalha utilizando o sistema chave-valor
+Utiliza a mesma notação dos objetos do Javascript
+Muito utilizado para troca de dados entre diferentes sistemas e em arquivos de configuração no Javascript
+É amplamente utilizado na web e é suportado por varias linguagens além do javascript
+
+
+{
+
+  "name": "Barbara Dorneles",
+  "job": "Software Engineer",
+  "working": "true"
+
+}
+
+
+JSON.parse() //converte uma string para objeto json-compatible
+JSON.stringfy() // converte um objeto json-compatible para string
+
+
+----------------------------------------------------------------------------------------------------
+
+NPX E SCRIPTS NPM
+
+NPX é um comando que executa as bibliotecas(pacotes)que instalamos, pela linha de Comando
+
+< ./path/to/some/dir > npm init -y
+< ./path/to/some/dir > npm install somePackage
+< ./path/to/some/dir > npx some-package-npm (arquivo executavel dao pacote)
+
+
+SCRIPTS são declarados no package.json da aplicaçãon e servem para executar qualquer procedimento (ou comando)
+
+file::package.json
+"scripts":{
+  "hello": "npx some-package-npm "
+}
+
+< ./path/to/some/dir > npm run hello  ou   run hello
+
+
+file::index.js
+const somePackage = require('some-pagkage-npm')
+console.log(somePackage())
+
+file::package.json
+"scripts":{
+  "hello": "npx some-package-npm "
+  "start": "node index.js"
+}
+
+< ./path/to/some/dir > npm run start  ou  npm start
+
+-----------------------------------------------------------------------------------------------------------
+BABEL
+
+É um compilador de Javascript.
+Converte código nas versões mais recentes do javascript pra codigo de versoes mais antigas, a fim de tornar-lo compativel com plataformas que naosuportam versoes mais novas
+Dependencia de  desenvolvimento
+
+- Tranformação de sintaxe
+- Polifill de recursos que nao existem no ambiente alvo
+- Transformaçao de codigo 
+- Etc..
+
+
+< ./path/to/some/dir > npm init -y
+< ./path/to/some/dir > npm install --save-dev @babel/core @babel/cli @babel/preset-env ou  npm install -D @babel/core @babel/cli @babel/preset-env
+
+file::index.js
+< ./path/to/some/dir > npx babel index.js //vai mostrar uma versao do arquivo no terminal corrigindo pequenas coisas, mas ainda nao foi considerado o preset-env
+< ./path/to/some/dir > npm babel index.js --out-file dist.js //vai criar um arquivo dist.js com o conteudo de index.js corrigido mas ainda nao foi considerado o preset-env
+< ./path/to/some/dir > npx babel index.js --out-file dist.js --presets=@babel/preset-env // cria o arquivo dist.js utilizando presets-env
+
+
+--------------------------
+UTILIZANDO BABEL EM VARIAS PASTAS
+
+< ./path/to/scr/ > ----> src é uma pasta que por converção fica todos os nossos codigos fonte do projeto
+
+< ./path/to/scr/ > npx babel src --out-dir dist --presets=@babel/preset-env //converte todos os arquivos da pasta src e cria uma pasta dist com os arquivos corrigidos
+
+
+!!! PODEMOS USAR OS SCRIPTS NPM PARA CRIAR UM SCRIPT PROPRIO PARA EXECUTAR O BABEL !!!
+
+file::package.json
+"scripts":{
+  "hello": "npx some-package-npm "
+  "start": "node index.js"
+  "babel": "babel src --out-dir dist --presets=@babel/preset-env"
+}
+
+< ./path/to/scr/ > npm run babel
+
+
+-------------------------------
+CONFIGURANDO BABEL
+
+Em vez de escrever comandos no terminal, podemos configurar o babel atraves do arquivo babel.config.js
+
+file::babel.config.js
+module.exports = {
+  presets: [
+    ["@babel/preset-env"]
+  ]
+}
+
+< ./path/to/scr/ > npm run babel
+
+------------------------------------------------------------------------------------------------------------
+WEBPACK
+
+Empacotador de modulo estatico 
+Empacota todos os modulos de uma aplicação a partir de um ou mais pontos de entrada em um ou mais bundle contendo tudo que aaplicação prcisa pra funcionariar
+
+------------------
+
+ENTRY: pontos de entrada de onde o webpack procurara por arquivos para empacotas 
+OUTPUT: a saida resultante do processo de empacotamento
+LOADERS: permitem que o webpack consiga entender outros tipos de arquivos (css por exemplo) transformado-os em modulos validos
+PLUGINS: são extensões utilizadas para estender o comportamento do webpack, realizando tarefas mais elaboradas que os loaders
+
+--------------------
+file::index.html
+<script src = "main.js">
+
+< ./path/to/scr/ > npm i -D webpack webpack-cli
+< ./path/to/scr/ > npm i otherPackage
+
+file:: index.js
+const otherPackage = require('otherPackage')
+alert(otherPackage.message)
+< ./path/to/scr/ > npx webpack
+
+
+TERMINAR ANOTAÇÕES DO MODULO
+
+-------------------------------------------------------
+EXERCICIO 17
+Passo a passo Babel + Webpack
+
+Criar o projeto e inicializar o NPM
+npm init
+npm i -D webpack webpack-cli @babel/core @babel/preset-env babel-loader style-loader css-loader
+
+Criar arquivo de configuração do Babel
+Na raiz, crie babel.config.js:
+
+module.exports = {
+  presets: [
+    ["@babel/preset-env"]
+  ]
+}
+
+
+Criar o webpack.config.js
+Na raiz, crie webpack.config.js com:
+
+const path = require('path');
+
+module.exports = {
+  mode: 'production',
+  entry: { main: './src/index.js' },
+  output: {
+    filename: '[name].min.js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: 'babel-loader'
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      }
+    ]
+  }
+};
+
+
+Ajustar o package.json
+Em "scripts", adicione:
+
+ "scripts": {
+  "build": "webpack"
+}
+
+
+Criar a pasta src/ e os arquivos-fonte
+
+
+src/index.js
+
+import './styles.css';
+console.log('App carregado com sucesso!');
+
+
+src/styles.css
+
+body { font-family: sans-serif; margin: 2rem; }
+h1   { color: #0066cc; }
+
+
+Executar o build
+npm run build
+
+
+Criar a página de teste
+Na raiz, crie index.html:
+
+ <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Teste Webpack</title>
+</head>
+<body>
+  <script src="dist/main.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+

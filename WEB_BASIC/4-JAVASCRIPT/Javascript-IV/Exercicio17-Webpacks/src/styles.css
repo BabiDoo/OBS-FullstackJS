@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1e1e2a, #282840);
+    overflow: hidden;
+}
+
+.notification-banner {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 90%;
+    max-width: 400px;
+    padding: 15px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 1px 1px rgba(255, 255, 255, 0.1) inset;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+.notification-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 15px;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.5), rgba(255, 0, 255, 0.5), rgba(0, 0, 255, 0.5));
+    filter: blur(10px);
+    z-index: -1;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    background-image: linear-gradient(135deg, #0ff, #f0f);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 15px rgba(255, 0, 255, 0.5);
+    position: relative;
+}
+
+.icon::after {
+    content: '✉️';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: 70%;
+    font-size: 1.6rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 0.9;
+    transform: translate(-50%, -50%);
+}
+
+.notification-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: white;
+}
+
+.notification-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0;
+    color: #0ff;
+    text-shadow: 0 0 5px #0ff;
+}
+
+.notification-subtitle {
+    font-size: 1.2em;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.notification-body {
+    font-size: 1.5em;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.timestamp {
+    font-size: 0.8em;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 5px;
+    align-self: flex-end;
+}
