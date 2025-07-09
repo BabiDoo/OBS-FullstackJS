@@ -21,4 +21,4 @@ function myResult(peso, altura) {
     });
 }
 
-myResult(75, 160);
+myResult(60, 160);
