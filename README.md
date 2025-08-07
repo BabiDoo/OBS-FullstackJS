@@ -1,2 +1,2 @@
-HERE YOU WILL FIND EXERCISES THAT I DID IN MY JS FULLSTACK COURSE.
-THEY ARE IN PORTUGUESE BUT I HOPE UPDATE THIS SOON FOR BETTER COMPREHENSION
+Here you will find exercises I completed in my Fullstack JavaScript course.
+They are currently in Portuguese, but I hope to update them soon for better comprehension.
